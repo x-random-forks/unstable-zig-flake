@@ -17,14 +17,14 @@
         zig-unstable = pkgs.stdenv.mkDerivation {
           pname = "zig-unstable";
           version = "unstable";
-          src = pkgs.fetchTarball {
+          src = pkgs.fetchurl {
             url = zigURL;
             sha256 = zigSha256;
           };
-          installPhase = ''
-            mkdir -p $out/bin
-            cp -r zig*/* $out/bin/
-          '';
+		  installPhase = ''
+			  mkdir -p $out/bin
+			  cp -r * $out/bin/
+		  '';
         };
       in {
         packages.default = zig-unstable;
