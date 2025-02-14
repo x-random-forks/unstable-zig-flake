@@ -11,7 +11,7 @@
       let 
         pkgs = import nixpkgs { inherit system; };
         zigLock = builtins.fromJSON (builtins.readFile ./zig-lock.json);
-        zigURL = ZigLock.${system}.tarball;
+        zigURL = zigLock.${system}.tarball;
         zigSha256 = zigLock.${system}.shasum;
 
         zig-unstable = pkgs.stdenv.mkDerivation {
